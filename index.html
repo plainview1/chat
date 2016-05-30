@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Test</title>
+	<link href='https://fonts.googleapis.com/css?family=Roboto:400,500,700' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" href="custom.css">
+	<link rel="stylesheet" href="normalize.css">
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+</head>
+<body>
+	<div class="container">
+		<!-- Sidebar start -->
+		<div class="left">
+			<div class="searchbar">
+				<span class="icon icon-search fl"></span>
+				<input type="text" placeholder="Быстрый поиск" class="search fl">
+				<span class="icon icon-type fr"></span>
+
+			</div>
+			<div class="user user-active">
+				<img src="img/1.png" alt="">
+				<a href="#">MaximModus</a>
+				<span>99+</span>
+			</div>
+			<div class="user">
+				<img src="img/2.png" alt="">
+				<a href="">Thomas Brown</a>
+				<span>3</span>
+			</div>
+			<div class="user">
+				<img src="img/3.png" alt="">
+				<a href="">Edward LeCriston</a>
+				<span>6</span>
+			</div>
+			<div class="user">
+				<img src="img/4.png" alt="">
+				<a href="">Cristian Smitt</a>
+				<span>2</span>
+			</div>
+			<div class="user">
+				<img src="img/5.png" alt="">
+				<a href="">Sandy Miller</a>
+			</div>
+			<div class="user">
+				<img src="img/6.png" alt="">
+				<a href="">Princess Murphy</a>
+			</div>
+			<div class="user">
+				<img src="img/7.png" alt="">
+				<a href="">Artour Bargeman</a>
+			</div>
+			<div class="user">
+				<img src="img/8.png" alt="">
+				<a href="">Andrey Afonin</a>
+			</div>
+			
+		</div>
+
+		<!-- Window Start -->
+
+		<div class="window">
+			<div class="w-header">
+				<img src="img/big1.png" alt="" class="fl">
+				<a>MaximModus</a>
+				<span class="count fr spoiler_links" id="count" onclick="count()">8 участников<span class="icon icon-dropdown"></span>
+					<div id="myDropdown" class="dropdown-content spoiler_body">
+						<div class="user">
+							<img src="img/2.png" alt="">
+							<a href="">Thomas Brown</a>
+						</div>
+						<div class="user">
+							<img src="img/3.png" alt="">
+							<a href="">Edward LeCriston</a>
+						</div>
+						<div class="user">
+							<img src="img/4.png" alt="">
+							<a href="">Cristian Smitt</a>
+						</div>
+						<div class="user">
+							<img src="img/5.png" alt="">
+							<a href="">Sandy Miller</a>
+						</div>
+						<div class="user">
+							<img src="img/6.png" alt="">
+							<a href="">Princess Murphy</a>
+						</div>
+						<div class="user">
+							<img src="img/7.png" alt="">
+							<a href="">Artour Bargeman</a>
+						</div>
+						<div class="user">
+							<img src="img/8.png" alt="">
+							<a href="">Andrey Afonin</a>
+						</div>
+					</div>
+				</span>
+			</div>
+			<div class="dialog">
+				<div class="message">
+					<div class="msg-heading">
+						<a href="#" class="author">Princess Murphy</a>
+						<a href="#" class="time fr">Вчера, 17:00</a>
+						
+					</div>
+					<div class="msg-body">
+						<img src="img/6.png" alt="" class="fl">
+						<p class="">
+							Hello, Bogdan! Yes, funny smiles
+							<img src="img/smiles.png" alt="" class="msg-smile shy">
+							<img src="img/smiles.png" alt="" class="msg-smile blink">
+						</p>
+					</div>
+				</div>
+				<div class="message">
+					<div class="msg-heading">
+						<a href="#" class="author">Edward LeCriston</a>
+						<a href="#" class="time fr">Вчера, 18:53</a>
+						
+					</div>
+					<div class="msg-body">
+						<img src="img/3.png" alt="" class="fl">
+						<p class="">I agree, like!</p>
+					</div>
+				</div>
+				<div class="message">
+					<div class="msg-heading">
+						<a href="#" class="author">Sandy Murphy</a>
+						<a href="#" class="time fr">Вчера, 20:12</a>
+					</div>
+					<div class="msg-body">
+						<img src="img/5.png" alt="" class="fl">
+						<p class="">Who knows the recipe for stuffed cabbage ?</p>
+					</div>
+				</div>
+				<div class="message">
+					<div class="msg-heading">
+						<a href="#" class="author">Andrey Afonin</a>
+						<a href="#" class="time fr">10 минут назад</a>
+					</div>
+					<div class="msg-body">
+						<img src="img/8.png" alt="" class="fl">
+						<p class="">Privet bratishki</p>
+					</div>
+				</div>
+				<div class="message">
+					<div class="msg-heading">
+						<a href="#" class="author">Andrey Afonin</a>
+						<a href="#" class="time fr">10 минут назад</a>
+					</div>
+					<div class="msg-body">
+						<img src="img/8.png" alt="" class="fl">
+						<p class="">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Non quam, molestiae blanditiis laudantium illo aperiam! Eveniet nemo, reiciendis nulla saepe quod optio unde rerum, alias cupiditate praesentium itaque, a ullam!</p>
+					</div>
+				</div>
+			</div>
+			<div class="form-group">
+				
+					<textarea name="test" id="" placeholder="Say message..."></textarea>
+					<span class="icon-send icon fr"></span>
+				
+				<span class="icon icon-attach"></span>
+				<span class="icon icon-smiles dropbtn" onclick="smiles()">
+					<div class="dropdown-smiles" id="smiles">
+						<div class="row">
+							<img src="img/smiles.png" class="smile regular">
+							<img src="img/smiles.png" class="smile shy">
+							<img src="img/smiles.png" class="smile extrasmile">
+							<img src="img/smiles.png" class="smile sad">
+							<img src="img/smiles.png" class="smile blink">
+						</div>
+						<div class="row">
+							<img src="img/smiles.png" alt="" class="smile smile-1">
+							<img src="img/smiles.png" alt="" class="smile smile-2">
+							<img src="img/smiles.png" alt="" class="smile smile-3">
+							<img src="img/smiles.png" alt="" class="smile smile-4">
+							<img src="img/smiles.png" alt="" class="smile smile-5">
+
+						</div>
+						<div class="row">
+							<img src="img/smiles.png" alt="" class="smile smile-6">
+							<img src="img/smiles.png" alt="" class="smile smile-7">
+							<img src="img/smiles.png" alt="" class="smile smile-8">
+							<img src="img/smiles.png" alt="" class="smile smile-9">
+							<img src="img/smiles.png" alt="" class="smile smile-10">
+						</div>
+						<div class="row">
+							<img src="img/smiles.png" alt="" class="smile smile-11">
+						</div>
+					</div>
+				</span>
+			</div>
+		</div>
+	</div>
+<script>
+/* When the user clicks on the button, 
+toggle between hiding and showing the dropdown content */
+function count() {
+    document.getElementById("myDropdown").classList.toggle("show");
+}
+
+function smiles() {
+	document.getElementById("smiles").classList.toggle("show");
+}
+
+// Close the dropdown menu if the user clicks outside of it
+// window.onclick = function(event) {
+//   if (!event.target.matches('.dropbtn')) {
+
+//     var dropdowns = document.getElementsByClassName("dropdown-content");
+//     var i;
+//     for (i = 0; i < dropdowns.length; i++) {
+//       var openDropdown = dropdowns[i];
+//       if (openDropdown.classList.contains('show')) {
+//         openDropdown.classList.remove('show');
+//       }
+//     }
+//   }
+// }
+</script>
+</body>
+</html>
+					
+					
+				
+					
