@@ -5,8 +5,6 @@
 	<title>Test</title>
 	<link href='https://fonts.googleapis.com/css?family=Roboto:400,500,700' rel='stylesheet' type='text/css'>
 	<link rel="stylesheet" href="custom.css">
-	<link rel="stylesheet" href="normalize.css">
-<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
 </head>
 <body>
 	<div class="container">
@@ -60,11 +58,15 @@
 		<!-- Window Start -->
 
 		<div class="window">
-			<div class="w-header">
+			<div class="masthead">
 				<img src="img/big1.png" alt="" class="fl">
 				<a>MaximModus</a>
-				<span class="count fr spoiler_links" id="count" onclick="count()">8 участников<span class="icon icon-dropdown"></span>
-					<div id="myDropdown" class="dropdown-content spoiler_body">
+				<span class="count fr">
+					<a href="#" class="toggle">
+						8 участников&nbsp;
+						<span class="icon icon-dropdown"></span>
+					</a>
+					<div class="dropdown-content">
 						<div class="user">
 							<img src="img/2.png" alt="">
 							<a href="">Thomas Brown</a>
@@ -105,7 +107,7 @@
 					</div>
 					<div class="msg-body">
 						<img src="img/6.png" alt="" class="fl">
-						<p class="">
+						<p class="post">
 							Hello, Bogdan! Yes, funny smiles
 							<img src="img/smiles.png" alt="" class="msg-smile shy">
 							<img src="img/smiles.png" alt="" class="msg-smile blink">
@@ -120,7 +122,7 @@
 					</div>
 					<div class="msg-body">
 						<img src="img/3.png" alt="" class="fl">
-						<p class="">I agree, like!</p>
+						<p class="post">I agree, like!</p>
 					</div>
 				</div>
 				<div class="message">
@@ -130,7 +132,7 @@
 					</div>
 					<div class="msg-body">
 						<img src="img/5.png" alt="" class="fl">
-						<p class="">Who knows the recipe for stuffed cabbage ?</p>
+						<p class="post">Who knows the recipe for stuffed cabbage ?</p>
 					</div>
 				</div>
 				<div class="message">
@@ -140,7 +142,7 @@
 					</div>
 					<div class="msg-body">
 						<img src="img/8.png" alt="" class="fl">
-						<p class="">Privet bratishki</p>
+						<p class="post">Privet bratishki</p>
 					</div>
 				</div>
 				<div class="message">
@@ -150,18 +152,16 @@
 					</div>
 					<div class="msg-body">
 						<img src="img/8.png" alt="" class="fl">
-						<p class="">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Non quam, molestiae blanditiis laudantium illo aperiam! Eveniet nemo, reiciendis nulla saepe quod optio unde rerum, alias cupiditate praesentium itaque, a ullam!</p>
+						<p class="post">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Non quam, molestiae blanditiis laudantium illo aperiam! Eveniet nemo, reiciendis nulla saepe quod optio unde rerum, alias cupiditate praesentium itaque, a ullam!</p>
 					</div>
 				</div>
 			</div>
 			<div class="form-group">
-				
-					<textarea name="test" id="" placeholder="Say message..."></textarea>
-					<span class="icon-send icon fr"></span>
-				
+				<textarea name="test" class="input" placeholder="Say message..."></textarea>
+				<span class="icon icon-send send"></span><br>
 				<span class="icon icon-attach"></span>
-				<span class="icon icon-smiles dropbtn" onclick="smiles()">
-					<div class="dropdown-smiles" id="smiles">
+				<span class="icon icon-smiles toggle-smiles">
+					<div class="dropdown-smiles">
 						<div class="row">
 							<img src="img/smiles.png" class="smile regular">
 							<img src="img/smiles.png" class="smile shy">
@@ -192,31 +192,47 @@
 			</div>
 		</div>
 	</div>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
 <script>
-/* When the user clicks on the button, 
-toggle between hiding and showing the dropdown content */
-function count() {
-    document.getElementById("myDropdown").classList.toggle("show");
-}
 
-function smiles() {
-	document.getElementById("smiles").classList.toggle("show");
-}
+	var main = function(){
+		
+		$('.toggle').click(function(){
+			$('.dropdown-content').css("left", "40px");
+			$('.dropdown-content').toggle().animate({left: "-7px"}, 5);
+		});
 
-// Close the dropdown menu if the user clicks outside of it
-// window.onclick = function(event) {
-//   if (!event.target.matches('.dropbtn')) {
+		$('.toggle-smiles').click(function(){
+			$('.dropdown-smiles').css("bottom", "0px");
+			$('.dropdown-smiles').toggle().animate({bottom: "30px"}, 5);
+		});
 
-//     var dropdowns = document.getElementsByClassName("dropdown-content");
-//     var i;
-//     for (i = 0; i < dropdowns.length; i++) {
-//       var openDropdown = dropdowns[i];
-//       if (openDropdown.classList.contains('show')) {
-//         openDropdown.classList.remove('show');
-//       }
-//     }
-//   }
-// }
+		$('.send').click(function(){
+			var post = $('.input').val();
+			$('<p class="post">').text(post).appendTo('.dialog');
+		})
+
+
+
+		// Hide modals
+		$(document).mouseup(function(e) {
+			var modal = $(".dropdown-smiles");
+			
+			if (!modal.is(e.target) && modal.has(e.target).length === 0) {
+				modal.hide();
+			}
+
+			var modal = $(".dropdown-content");
+			
+			if (!modal.is(e.target) && modal.has(e.target).length === 0) {
+				modal.hide();
+			}
+		});
+
+	};
+
+	$(document).ready(main);
+
 </script>
 </body>
 </html>
